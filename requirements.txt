@@ -1,0 +1,9 @@
+pandas
+slack-bolt
+google-api-python-client 
+google-auth-httplib2 
+google-auth-oauthlib
+pytest
+dotenv
+flake8==6.0.0
+black==22.10.0
