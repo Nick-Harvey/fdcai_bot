@@ -78,22 +78,23 @@ class SlackNotifier:
                             "type": "button",
                             "text": {"type": "plain_text", "text": "Get the agenda", "emoji": True},
                             "style": "primary",
-                            "url": "#",
+                            "url": "https://google.com",
                         },
                     },
                     {
                         "type": "section",
-                        "text": {"type": "mrkdwn", "text": "2. *Vote for your favorite research poster*"},
+                        "text": {"type": "mrkdwn", "text": "2. *Review the research poster showcase*"},
                         "accessory": {
                             "type": "button",
                             "text": {"type": "plain_text", "text": "Take me to those posters!", "emoji": True},
+                            "url": "https://fdcai.slack.com/archives/C057RAJEZNG",
                         },
                     },
                     {
                         "type": "section",
                         "text": {
                             "type": "mrkdwn",
-                            "text": "3. * For assistance, mention `@mods` in any channel and someone from the Snorkel will reach out. There is also <C057R9U8EF6|#fdcai-assistance> if you want to the mod team 1:1.*",
+                            "text": "3. * Need help? Just mention `@mods` in any channel and someone from Snorkel will reach out. There is also <#C057R9U8EF6|fdcai-assistance> if you want to message the mod team 1:1.*",
                         },
                     },
                     {"type": "divider"},
@@ -104,14 +105,20 @@ class SlackNotifier:
                     {
                         "type": "section",
                         "text": {"type": "mrkdwn", "text": "*May 22nd* - :diving_mask: Snorkel Founders AMA 12:00pm EST"},
-                        "accessory": {"type": "button", "text": {"type": "plain_text", "text": "Join #AMA", "emoji": True}},
+                        "accessory": {
+                            "type": "button",
+                            "text": {"type": "plain_text", "text": "Join #AMA", "emoji": True},
+                            "url": "https://fdcai.slack.com/archives/C057NP5JWBD",
+                        },
                     },
-                    {"type": "section", "text": {"type": "mrkdwn", "text": "*June 7* - Future of Data Centric AI Day 1"}},
-                    {"type": "section", "text": {"type": "mrkdwn", "text": "*June 8* - Future of Data Centric AI Day 2"}},
+                    {"type": "section", "text": {"type": "mrkdwn", "text": "*June 7th* - Future of Data Centric AI Day 1"}},
+                    {"type": "section", "text": {"type": "mrkdwn", "text": "*June 8th* - Future of Data Centric AI Day 2"}},
                     {
                         "type": "section",
-                        "text": {"type": "mrkdwn", "text": "*June 21st* - Ai Leaders Forum - NYC, in-person"},
-                        "accessory": {"type": "button", "text": {"type": "plain_text", "text": "RSVP", "emoji": True}},
+                        "text": {
+                            "type": "mrkdwn",
+                            "text": "*June 8th* - Community meetup at Snorkel AI HQ Redwood City, CA",
+                        },
                     },
                     {"type": "divider"},
                     {
@@ -131,17 +138,9 @@ class SlackNotifier:
                     {
                         "type": "context",
                         "elements": [
-                            {"type": "mrkdwn", "text": ":pushpin: Pssst... We're hiring! Check out our *open roles*."}
-                        ],
-                    },
-                    {
-                        "type": "actions",
-                        "elements": [
                             {
-                                "type": "button",
-                                "text": {"type": "plain_text", "text": "Click Me", "emoji": True},
-                                "value": "click_me_123",
-                                "action_id": "actionId-0",
+                                "type": "mrkdwn",
+                                "text": ":pushpin: Pssst... We're hiring! Check out our *<https://snorkel.ai/join-us/|open roles>*.",
                             }
                         ],
                     },
