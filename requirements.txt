@@ -6,4 +6,4 @@ google-auth-oauthlib
 pytest
 python-dotenv
 flake8==6.0.0
-black==22.10.0
+black==23.3.0
