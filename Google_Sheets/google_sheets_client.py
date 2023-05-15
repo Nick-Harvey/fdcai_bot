@@ -3,7 +3,6 @@ from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
-import pandas as pd
 import os
 
 credentials_file = "../credentials.json"
@@ -37,18 +36,24 @@ class GoogleSheetsClient:
             service = build("sheets", "v4", credentials=self.creds)
             sheet = service.spreadsheets()
             result = sheet.values().get(spreadsheetId=spreadsheet_id, range=range_name).execute()
-            return result
+            headers = result.get("values", [])[0]
+            values = result.get("values", [])[1:]
+            return headers, values
         except HttpError as err:
             print(err)
             return None
 
-    @staticmethod
-    def gsheet_to_dataframe(result):
-        # Convert Google sheet data to DataFrame
-        header = result.get("values", [])[0]
-        values = result.get("values", [])[1:]
-        if not values:
-            print("No data found.")
-            return None
-        df = pd.DataFrame(values, columns=header)
-        return df
+    def update_cell_value(self, spreadsheet_id, range_name, value):
+        try:
+            service = build("sheets", "v4", credentials=self.creds)
+            body = {"range": range_name, "values": [[value]]}
+            result = (
+                service.spreadsheets()
+                .values()
+                .update(spreadsheetId=spreadsheet_id, range=range_name, valueInputOption="RAW", body=body)
+                .execute()
+            )
+
+            print(f"Updated {result.get('updatedCells')} cells.")
+        except HttpError as err:
+            print(err)

@@ -1,4 +1,4 @@
-# Bolt for Python Template App
+# Dr Bubbles Slack App
 
 This is a generic Bolt for Python template app used to build out Slack apps.
 

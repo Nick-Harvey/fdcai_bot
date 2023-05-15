@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      SLACK_APP_TOKEN: "your_slack_app_token"
+      SLACK_BOT_TOKEN: "your_slack_bot_token"
+    volumes:
+      - .:/app
